@@ -1,0 +1,61 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+    <div class="container">
+        <h2>Heart Disease Prediction</h2>
+        <form action="{{ url_for('predict') }}" method="POST">
+            <label for="age">Age:</label>
+            <input type="number" name="age" required>
+
+            <label for="sex">Sex (1 = Male, 0 = Female):</label>
+            <input type="number" name="sex" min="0" max="1" required>
+
+            <label for="cp">Chest Pain Type (0-3):</label>
+            <input type="number" name="cp" min="0" max="3" required>
+
+            <label for="trestbps">Resting Blood Pressure:</label>
+            <input type="number" name="trestbps" required>
+
+            <label for="chol">Cholesterol:</label>
+            <input type="number" name="chol" required>
+
+            <label for="fbs">Fasting Blood Sugar (> 120 mg/dl, 1 = True; 0 = False):</label>
+            <input type="number" name="fbs" min="0" max="1" required>
+
+            <label for="restecg">Resting Electrocardiographic Results (0-2):</label>
+            <input type="number" name="restecg" min="0" max="2" required>
+
+            <label for="thalach">Maximum Heart Rate Achieved:</label>
+            <input type="number" name="thalach" required>
+
+            <label for="exang">Exercise Induced Angina (1 = Yes; 0 = No):</label>
+            <input type="number" name="exang" min="0" max="1" required>
+
+            <label for="oldpeak">ST Depression Induced by Exercise:</label>
+            <input type="number" name="oldpeak" step="0.1" required>
+
+            <label for="slope">Slope of Peak Exercise ST Segment (0-2):</label>
+            <input type="number" name="slope" min="0" max="2" required>
+
+            <label for="ca">Number of Major Vessels Colored by Fluoroscopy (0-3):</label>
+            <input type="number" name="ca" min="0" max="3" required>
+
+            <label for="thal">Thalassemia (1 = Normal; 2 = Fixed Defect; 3 = Reversible Defect):</label>
+            <input type="number" name="thal" min="1" max="3" required>
+
+            <button type="submit">Predict</button>
+        </form>
+        {% if prediction_text %}
+            <h3>{{ prediction_text }}</h3>
+        {% endif %}
+    </div>
+</body>
+</html>
+
