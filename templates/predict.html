@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Heart Disease Prediction</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('predict') }}">Predict</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="prediction-form">
+            <h2>Enter Patient Information</h2>
+            <form action="/predict" method="post">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" required>
+
+                <label for="sex">Sex (1 = Male, 0 = Female):</label>
+                <input type="number" id="sex" name="sex" required>
+
+                <label for="chest_pain">Chest Pain Type (0-3):</label>
+                <input type="number" id="chest_pain" name="chest_pain" required>
+
+                <label for="resting_bp">Resting Blood Pressure:</label>
+                <input type="number" id="resting_bp" name="resting_bp" required>
+
+                <label for="cholesterol">Cholesterol:</label>
+                <input type="number" id="cholesterol" name="cholesterol" required>
+
+                <label for="fasting_blood_sugar">Fasting Blood Sugar (> 120 mg/dl, 1 = True; 0 = False):</label>
+                <input type="number" id="fasting_blood_sugar" name="fasting_blood_sugar" required>
+
+                <label for="resting_ecg">Resting Electrocardiographic Results (0-2):</label>
+                <input type="number" id="resting_ecg" name="resting_ecg" required>
+
+                <label for="max_heart_rate">Maximum Heart Rate Achieved:</label>
+                <input type="number" id="max_heart_rate" name="max_heart_rate" required>
+
+                <label for="exercise_angina">Exercise Induced Angina (1 = Yes; 0 = No):</label>
+                <input type="number" id="exercise_angina" name="exercise_angina" required>
+
+                <label for="st_depression">ST Depression Induced by Exercise:</label>
+                <input type="number" id="st_depression" name="st_depression" required>
+
+                <label for="slope">Slope of Peak Exercise ST Segment (0-2):</label>
+                <input type="number" id="slope" name="slope" required>
+
+                <label for="num_major_vessels">Number of Major Vessels Colored by Fluoroscopy (0-3):</label>
+                <input type="number" id="num_major_vessels" name="num_major_vessels" required>
+
+                <label for="thalassemia">Thalassemia (1 = Normal; 2 = Fixed Defect; 3 = Reversible Defect):</label>
+                <input type="number" id="thalassemia" name="thalassemia" required>
+
+                <button type="submit" class="btn">Predict</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Heart Disease Prediction App. All rights reserved.</p>
+    </footer>
+</body>
+</html>
